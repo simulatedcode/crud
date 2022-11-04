@@ -38,7 +38,7 @@ const logout = () => {
 
         <Banner />
         
-        <div class="min-h-screen bg-zinc-50">
+        <div class="min-h-screen bg-zinc-50" preserve-state>
             <nav class="bg-white border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -312,13 +312,13 @@ const logout = () => {
             </nav>
 
             <!-- Notification -->
-            <div v-if="$page.props.flash.success" class="absolute top-4 right-4 z-20 transition-opacity delay-100 ease-in-out">
+            <div v-if="$page.props.flash.success" class="fixed top-4 right-4 z-20 transition-opacity delay-100 ease-in-out" preserve-scroll>
                 <Success :message="$page.props.flash.success"/>
             </div>
-            <div v-if="$page.props.flash.error" class="absolute top-4 right-4 z-20 transition-opacity delay-100 ease-in-out">
+            <div v-if="$page.props.flash.error" class="fixed top-4 right-4 z-20 transition-opacity delay-100 ease-in-out" preserve-scroll>
                 <Error :message="$page.props.flash.error"/>
             </div>
-            <div v-if="$page.props.flash.update" class="absolute top-4 right-4 z-20 transition-opacity delay-100 ease-in-out">
+            <div v-if="$page.props.flash.update" class="fixed top-4 right-4 z-20 transition-opacity delay-100 ease-in-out" preserve-scroll>
                 <Update :message="$page.props.flash.update"/>
             </div>
 

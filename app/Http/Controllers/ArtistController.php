@@ -17,11 +17,10 @@ class ArtistController extends Controller
      */
     public function index(Artist $artist)
     {
-        $artist = Artist::paginate(10);
-
         return Inertia::render('Admin/Artists/Index', [
-            'artists' => $artist,
+            'artists' => Artist::orderBy('id', 'asc')->paginate(10),
         ]);
+
     }
 
     /**

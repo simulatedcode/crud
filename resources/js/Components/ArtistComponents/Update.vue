@@ -13,7 +13,7 @@ onMounted (() => {
 	setTimeout (() => {
 		showNotification.value = false;
 	}, 3000);
-});
+}); 
 
 </script>
 
