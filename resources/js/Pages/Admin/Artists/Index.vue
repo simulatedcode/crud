@@ -2,11 +2,24 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ArtistTable from '@/Components/ArtistComponents/ArtistTable.vue';
 import {Link} from '@inertiajs/inertia-vue3';
-import CarbonSearch from '~icons/carbon/search'
+import {ref, watch} from 'vue';
+import { Inertia } from '@inertiajs/inertia';
 
 
-defineProps (['artists'])
+let props = defineProps ({
+    artists: Object,
+    filters: Object,
+})
 
+let search = ref (props.filters.search);
+
+watch (search, value => {
+    Inertia.get ('/artists', {search: value}, {
+        preserveState: true,
+        preserveScroll: true,
+        replace: true,
+    });
+})
 </script>
 
 <template>
@@ -20,8 +33,8 @@ defineProps (['artists'])
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-end items-center">
-                    <div class="px-3 py-3 hover:bg-gray-200 ">
-                        <CarbonSearch class="w-6 h-6 text-gray-700"/>
+                    <div class="flex items-center px-3 py-3 ">
+                        <input v-model="search" type="search" placeholder="search..." class="text-sm py-3 border-b border-t-0 border-x-0 bg-zinc-100 outline-none">
                     </div>
                     <div class="bg-blue-600 px-4 py-3">
                         <Link :href="route('artists.create')" class="text-white hover:text-blue-100 mr-6 text-sm">

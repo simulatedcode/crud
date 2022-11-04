@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use App\Models\Artist;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\ArtistRequest;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Redirect;
 
 class ArtistController extends Controller
@@ -18,7 +19,19 @@ class ArtistController extends Controller
     public function index(Artist $artist)
     {
         return Inertia::render('Admin/Artists/Index', [
-            'artists' => Artist::orderBy('id', 'asc')->paginate(10),
+            'artists' => Artist::query()
+                ->when(Request::input('search'), function ($query, $search) {
+                    $query->where('firstname', 'like', '%' . $search . '%');
+                })
+                ->orderBy('created_at', 'desc')
+                ->paginate(10)
+                ->withQueryString()
+                ->through(fn ($artist) => [
+                    'id' => $artist->id,
+                    'firstname' => $artist->firstname,
+                    'lastname' => $artist->lastname,
+            ]),
+            'filters' => Request::only(['search']),
         ]);
 
     }
@@ -118,16 +131,5 @@ class ArtistController extends Controller
         return Redirect::route('artists.index')->with('error', 'Artist deleted');
     }
 
-    public function search()
-    {
-        $search = request('search');
 
-        $artists = Artist::where('firstname', 'like', '%' . $search . '%')
-            ->orWhere('lastname', 'like', '%' . $search . '%')
-            ->get();
-
-        return Inertia::render('Admin/Artists/Index', [
-            'artists' => $artists,
-        ]);
-    }
 }

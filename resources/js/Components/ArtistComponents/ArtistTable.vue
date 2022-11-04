@@ -70,7 +70,7 @@ defineProps({
                             <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between py-6 px-6">
                                 <div class="inline-flex justify-start mr-60">
                                     <p class="text-sm font-normal leading-relaxed">
-                                        <span class="mr-2">Total per page:</span>{{ artists.per_page }} artists
+                                        <span v-if="artists.per_page" class="mr-2">Total per page:</span>{{ artists.per_page }} artists
                                     </p>
                                 </div>
                                 <div class="flex-1">
