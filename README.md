@@ -8,9 +8,13 @@
 ## Tasks
 
 Nov, 4 2022 5.43 AM – **artists page**
-- Search
-- pagination
-- create fake artist data
+- ~~Search~~
+- ~~paginate~~
+- ~~fake data~~
+- completed artist form
+
+Nov, 5 2022 – **new setup**
+- relation data from artist to collective
 
 
 ## License

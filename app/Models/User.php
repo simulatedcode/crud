@@ -59,4 +59,6 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    protected $dateFormat = 'MMM Do YYYY, h:mm:ss a';
 }
