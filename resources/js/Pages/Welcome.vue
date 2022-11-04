@@ -7,6 +7,7 @@ defineProps({
     laravelVersion: String,
     phpVersion: String,
 });
+
 </script>
 
 <template>

@@ -17,8 +17,10 @@ class ArtistController extends Controller
      */
     public function index(Artist $artist)
     {
+        $artist = Artist::paginate(10);
+
         return Inertia::render('Admin/Artists/Index', [
-            'artists' => Artist::orderBy('firstname')->get(),
+            'artists' => $artist,
         ]);
     }
 

@@ -5,9 +5,7 @@ import {Link} from '@inertiajs/inertia-vue3';
 import CarbonSearch from '~icons/carbon/search'
 
 
-defineProps({
-    artists: Array,
-})
+defineProps (['artists'])
 
 </script>
 

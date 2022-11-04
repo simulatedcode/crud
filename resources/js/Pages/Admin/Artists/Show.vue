@@ -1,10 +1,7 @@
 <script setup>
 
 const props = defineProps({
-    artist: {
-        type: Array,
-        required: true
-    }
+    artist: Array,
 })
 
 </script>

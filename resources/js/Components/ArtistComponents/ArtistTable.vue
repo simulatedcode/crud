@@ -3,9 +3,12 @@ import { Link } from '@inertiajs/inertia-vue3';
 import CarbonEdit from '~icons/carbon/edit';
 import CarbonTrashCan from '~icons/carbon/trash-can';
 
-defineProps ([
-    'artists'
-])
+defineProps({
+    artists: Object,
+    
+});
+
+
 
 </script>
 <template>
@@ -19,7 +22,7 @@ defineProps ([
                             Artists List
                             <p class="mt-1 text-sm font-normal leading-relaxed">List online archive of Indonesian Visual Art Archive.</p>
                             <p class="mt-1 text-sm font-normal leading-relaxed w-1/2">
-                                Total data: {{ artists.length }} Artists
+                                Total data: {{ artists.length }}
                             </p>
                         </caption>
                         <thead>
@@ -35,7 +38,7 @@ defineProps ([
                             </tr>
                         </thead>
                         <tbody class="text-neutral-600 text-sm">
-                            <tr v-for="artist in artists" :key="artist.id" class="border-b border-gray-200 hover:bg-zinc-100/60">
+                            <tr v-for="artist in artists.data" :key="artist.id" class="border-b border-gray-200 hover:bg-zinc-100/60">
                                 <td class="py-3 px-6 text-left whitespace-nowrap">
                                 <Link :href="route('artists.show', artist.id)">
                                    <p class="font-medium">{{ artist.firstname }} {{ artist.lastname}}</p>
@@ -58,7 +61,6 @@ defineProps ([
                                             <Link :href="route('artists.destroy', artist.id)" method="delete" as="button" type="button">
                                                 <CarbonTrashCan/>
                                             </Link>
-                                            
                                         </div>
                                     </div>
                                 </td>
@@ -68,6 +70,8 @@ defineProps ([
                 </div>
             </div>
         </div>
-       
+        <div class="space-x-4 py-6 px-4">
+            <Link v-for="link in artists.links" :href="link.url" v-html="link.label" preserve-scroll></Link>
+        </div>
     </div>
 </template>

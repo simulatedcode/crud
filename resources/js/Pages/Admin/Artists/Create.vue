@@ -1,7 +1,9 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ArtistForm from '@/Components/ArtistComponents/ArtistForm.vue';
+
 </script>
+
 <template>
     <AppLayout title="Artists">
         <template #header>
