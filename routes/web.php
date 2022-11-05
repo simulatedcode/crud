@@ -17,7 +17,6 @@ use App\Http\Controllers\ArtistController;
 */
 
 Route::get('/', function () {
-    sleep(1);
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -27,7 +26,6 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    sleep(1);
     auth()->user()->assignRole('admin');
     return Inertia::render('Dashboard');
 })->name('dashboard');

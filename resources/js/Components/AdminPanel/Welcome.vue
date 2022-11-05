@@ -22,7 +22,7 @@ import moment from 'moment';
         </div>
 
         <div class="p-6 sm:px-10 text-sm text-zinc-600">
-            Last Updated: {{ moment($page.props.user.updated_at).format('MMM, Do YYYY, h:mm a') }}
+            Last Updated: {{ $page.props.user.updated_at }}
         </div>
     </div>
 </template>

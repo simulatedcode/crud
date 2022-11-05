@@ -24,13 +24,14 @@ defineProps({
                         <thead>
                             <tr class="text-sm leading-relaxed bg-zinc-300 border-b border-zinc-400">
                                 <td class="border py-3 px-6 text-left font-semibold">ID</td>
-                                <td class="border py-3 px-6 text-left w-1/4 font-semibold">Name</td>
+                                <td class="border py-3 px-6 text-left font-semibold">Name</td>
                                 <td class="border py-3 px-6 text-left font-semibold">Collective</td>
                                 <td class="border py-3 px-6 text-left font-semibold">Category</td>
                                 <td class="border py-3 px-6 text-left font-semibold">Artwork</td>
                                 <td class="border py-3 px-6 text-left font-semibold">Events</td>
                                 <td class="border py-3 px-6 text-left font-semibold">Khazanahs</td>
-                                <td class="border py-3 px-6 text-left font-semibold">Status</td>
+                                <td class="border py-3 px-6 text-left font-semibold">Created</td>
+                                <td class="border py-3 px-6 text-center font-semibold">Status</td>
                                 <td class="border py-3 px-6 text-center font-semibold">Action</td>
                             </tr>
                         </thead>
@@ -47,7 +48,8 @@ defineProps({
                                 <td class="border py-3 px-6 text-left">20 Artwork</td>
                                 <td class="border py-3 px-6 text-left">1 Event</td>
                                 <td class="border py-3 px-6 text-left">12 Khazanah</td>
-                                <td class="border py-3 px-6 text-left">active</td>
+                                <td class="border py-3 px-6 text-left">{{ artist.created_at }}</td>
+                                <td class="border py-3 px-6 text-center">active</td>
                                 <td class="border py-3 px-6 text-center">
                                     <div class="flex item-center justify-center space-x-2">
                                         <div class="w-4 mr-2 transform text-blue-700 hover:text-blue-500 hover:scale-110">

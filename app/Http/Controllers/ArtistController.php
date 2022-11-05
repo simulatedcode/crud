@@ -30,10 +30,10 @@ class ArtistController extends Controller
                     'id' => $artist->id,
                     'firstname' => $artist->firstname,
                     'lastname' => $artist->lastname,
-            ]),
+                    'created_at' => $artist->created_at->format('d/m/Y'),
+                ]),
             'filters' => Request::only(['search']),
         ]);
-
     }
 
     /**
@@ -115,7 +115,7 @@ class ArtistController extends Controller
             'lastname' => request('lastname'),
         ]);
 
-        return redirect()->route('artists.index')->with('update', 'Artist updated');
+        return redirect()->route('artists.show', $artist->id)->with('update', 'Artist updated');
     }
 
     /**
@@ -130,6 +130,4 @@ class ArtistController extends Controller
 
         return Redirect::route('artists.index')->with('error', 'Artist deleted');
     }
-
-
 }

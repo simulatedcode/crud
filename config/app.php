@@ -70,7 +70,10 @@ return [
     */
 
     'timezone' => 'Asia/Jakarta',
-    'locale' => 'id',
+    'date_format' => 'd-m-Y',
+    'time_format' => 'H:i:s',
+    'datetime_format' => 'd-m-Y H:i:s',
+    'date_format_js' => 'dd-mm-yyyy',
 
     /*
     |--------------------------------------------------------------------------
