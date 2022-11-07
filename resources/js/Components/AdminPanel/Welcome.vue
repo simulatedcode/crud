@@ -1,5 +1,4 @@
 <script setup>
-import moment from 'moment';
 
 </script>
 
@@ -7,9 +6,9 @@ import moment from 'moment';
     <div>
         <div class="p-6 sm:px-10 bg-white border-b border-gray-200">
             <div class="text-2xl">
-               Hi, {{ $page.props.user.name }}!
+               Hi there!
                <p class="text-sm"> 
-                 Date Time: {{ moment(now).format('MMM, Do YYYY, h:mm a') }}
+                 Date Time:
                </p>
             </div>
 
@@ -22,7 +21,10 @@ import moment from 'moment';
         </div>
 
         <div class="p-6 sm:px-10 text-sm text-zinc-600">
-            Last Updated: {{ $page.props.user.updated_at }}
+           Last Update:
+        </div>
+        <div>
+           
         </div>
     </div>
 </template>

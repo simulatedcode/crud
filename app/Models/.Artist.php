@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\CategoryArtist;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -12,19 +13,17 @@ class Artist extends Model
     protected $fillable = [
         'firstname',
         'lastname',
-        'bod',
-        'dod',
+        'birthdate',
+        'deathdate',
         'is_active',
+
     ];
 
     protected $casts = [
-        'bod' => 'date',
-        'dod' => 'date',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
         'is_active' => 'boolean',
-    ];
 
-    public function categories()
-    {
-        return $this->belongsTo(ArtistCategory::class);
-    }
+    ];
+  
 }

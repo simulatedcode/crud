@@ -24,8 +24,10 @@ class ArtistRequest extends FormRequest
     public function rules()
     {
         return [
-            'firstname' => 'required', 
+            'firstname' => 'required',
             'lastname' => 'required',
+            'categories' => 'required',
+
         ];
     }
 }

@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Inertia\Inertia;
-use App\Models\Artist;
 use Illuminate\Http\Request;
-use App\Http\Resources\ArtistResource;
 
-class ArtistController extends Controller
+class ArtistCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +13,7 @@ class ArtistController extends Controller
      */
     public function index()
     {
-        $artists = ArtistResource::collection(Artist::all());
-        return Inertia::render('Admin/Artists/Index', compact('artists'));
+        //
     }
 
     /**
@@ -27,7 +23,7 @@ class ArtistController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Admin/Artists/Create');
+        //
     }
 
     /**

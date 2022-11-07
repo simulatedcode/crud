@@ -49,7 +49,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'created_at' => 'datetime:d M Y',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
 
     /**
@@ -60,14 +61,4 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-
-    public function getCreatedAtAttribute($value)
-    {
-        return date('Dd, d M Y h:m a', strtotime($value));
-    }
-
-    public function getUpdatedAtAttribute($value)
-    {
-        return date('D, d M Y h:m a', strtotime($value));
-    }
 }

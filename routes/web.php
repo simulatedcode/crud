@@ -25,9 +25,11 @@ Route::get('/', function () {
     ]);
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    auth()->user()->assignRole('admin');
-    return Inertia::render('Dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
 
-Route::resource('artists', ArtistController::class)->name('index', 'artists.index')->middleware('auth');
+    Route::resource('artists', ArtistController::class);
+    Route::resource('artists-categories', ArtistCategory::class);
+});

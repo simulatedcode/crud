@@ -1,6 +1,8 @@
 <script setup>
+
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ArtistForm from '@/Components/ArtistComponents/ArtistForm.vue';
+
 
 </script>
 
@@ -8,7 +10,7 @@ import ArtistForm from '@/Components/ArtistComponents/ArtistForm.vue';
     <AppLayout title="Artists">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Artists Page
+                Artists Form
             </h2>
         </template>
 
@@ -24,7 +26,7 @@ import ArtistForm from '@/Components/ArtistComponents/ArtistForm.vue';
                             </div>
                         </div>
                     
-                        <ArtistForm/>
+                        <ArtistForm />
                       
                     </div>
                     
