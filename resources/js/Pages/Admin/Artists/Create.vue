@@ -3,6 +3,9 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ArtistForm from '@/Components/ArtistComponents/ArtistForm.vue';
 
+defineProps({
+    categories: Object,
+})
 
 </script>
 
@@ -26,7 +29,7 @@ import ArtistForm from '@/Components/ArtistComponents/ArtistForm.vue';
                             </div>
                         </div>
                     
-                        <ArtistForm />
+                        <ArtistForm :categories="categories" />
                       
                     </div>
                     

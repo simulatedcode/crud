@@ -2,7 +2,6 @@
 import { useForm } from '@inertiajs/inertia-vue3';
 
 const props = defineProps ({
-    categories: Object,
     artist: Object
 })
 
@@ -11,7 +10,7 @@ const form = useForm({
     lastname: props.artist.lastname,
     bod: props.artist.bod,
     dod: props.artist.dod,
-    category: props.categories,
+    category: '',
     is_active: props.artist.is_active,
 })
 
@@ -54,7 +53,6 @@ function updateArtist(){
                                 <label for="status" class="w-full block text-sm text-gray-700">Category</label>
                                 <select v-model="form.category" id="category" name="category" autocomplete="category" class="mt-1 block w-full border-x-0 border-t-0 border-b-gray-400 bg-gray-100 sm:text-sm">
                                     <option value="">Select Category</option>
-                                    <option v-for="category in categories" :value="category.id" :key="category.id">{{ category.type }}</option>
                                 </select>
                             </div>
                             <div class="col-span-6 sm:col-span-3">

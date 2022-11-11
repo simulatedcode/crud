@@ -1,5 +1,9 @@
 <script setup>
-import { useForm } from '@inertiajs/inertia-vue3';
+import { useForm, Link } from '@inertiajs/inertia-vue3';
+
+defineProps({
+    categories: Object,
+})
 
 const form = useForm({
     firstname: '',
@@ -7,9 +11,7 @@ const form = useForm({
     bod: '',
     dod: '',
     category: '',
-    is_active: false,
-    image: '',
-    slug: '',
+    is_active: true,
 
 })
 
@@ -56,7 +58,7 @@ function submitArtist(){
                                 <label for="status" class="w-full block text-sm text-gray-700">Category</label>
                                 <select v-model="form.category" id="category" name="category" autocomplete="category" class="mt-1 block w-full border-x-0 border-t-0 border-b-gray-400 bg-gray-100 sm:text-sm">
                                     <option value="">Select Category</option>
-                                    <option value="painter">Painter</option>
+                                    
                                 </select>
                             </div>
                             <div class="col-span-6 sm:col-span-3">
@@ -66,14 +68,11 @@ function submitArtist(){
                                     <label for="active" class="text-sm text-gray-700">Active</label>
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
                     <!-- Button -->
                     <div class="bg-blue-50 px-4 py-3 sm:px-6">
-                        <button :disabled="form.processing" preserve-state preserve-scroll type="submit" class="inline-flex border border-transparent bg-blue-600 py-2 px-8 text-sm text-blue-100 font-medium hover:text-white hover:bg-blue-700 focus:outline-none">Save</button>
+                        <button preserve-state preserve-scroll type="submit" class="inline-flex border border-transparent bg-blue-600 py-2 px-8 text-sm text-blue-100 font-medium hover:text-white hover:bg-blue-700 focus:outline-none">Save</button>
                     </div>
                 </div>
         </form>

@@ -26,6 +26,7 @@
         "vue": "^3.2.31"
     },
     "dependencies": {
+        "@vueuse/core": "^9.5.0",
         "moment": "^2.29.4",
         "vue-multiselect": "^2.1.6"
     }

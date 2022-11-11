@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Artist extends Model
 {
@@ -18,13 +18,8 @@ class Artist extends Model
     ];
 
     protected $casts = [
-        'bod' => 'date',
-        'dod' => 'date',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
         'is_active' => 'boolean',
     ];
-
-    public function categories()
-    {
-        return $this->belongsTo(ArtistCategory::class);
-    }
 }

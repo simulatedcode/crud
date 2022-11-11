@@ -26,7 +26,6 @@ class ArtistRequest extends FormRequest
         return [
             'firstname' => 'required',
             'lastname' => 'required',
-            'categories' => 'required',
 
         ];
     }

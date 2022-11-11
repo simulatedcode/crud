@@ -10,8 +10,7 @@ import CarbonCircleSolid from '~icons/carbon/circle-solid';
 
 
 defineProps({
-    artist: Object,
-    categories: Object,
+    artist: Object
 })
 
 </script>
@@ -69,7 +68,7 @@ defineProps({
                             </div>
                             <div class="border-b px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Birth of date</dt>
-                                <dd class="mt-1 text-sm font-mono text-gray-900 sm:col-span-2 sm:mt-0">{{moment($page.props.artist.bod).format('D MMMM YYYY')}}</dd>
+                                <dd class="mt-1 text-sm font-mono text-gray-900 sm:col-span-2 sm:mt-0">{{ moment($page.props.artist.bod).format('D MMM YYYY') }}</dd>
                             </div>
                             <div class="border-b px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Died of date</dt>
@@ -77,8 +76,8 @@ defineProps({
                             </div>
                             <div class="border-b px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Category</dt>
-                                <dd v-for="category in categories.artists" :key="category.id" class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                                    {{ category.name }}
+                                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                                   
                                 </dd>
                             </div>
                             <div class="border-b px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">

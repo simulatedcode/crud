@@ -30,6 +30,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
-    Route::resource('artists', ArtistController::class);
-    Route::resource('artists-categories', ArtistCategory::class);
+    Route::resource('/artists', ArtistController::class);
 });

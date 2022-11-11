@@ -16,7 +16,7 @@ return new class () extends Migration {
             $table->id();
             $table->string('firstname');
             $table->string('lastname');
-            $table->date('bod');
+            $table->date('bod')->nullable();
             $table->date('dod')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
