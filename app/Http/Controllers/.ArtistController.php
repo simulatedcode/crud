@@ -31,6 +31,10 @@ class ArtistController extends Controller
                     'firstname' => $artist->firstname,
                     'lastname' => $artist->lastname,
                     'is_active' => $artist->is_active,
+                    'birthdate' => $artist->birthdate,
+                    'category' => $artist->category,
+                    'description' => $artist->description,
+                    'slug' => $artist->slug,
                     'created_at' => $artist->created_at,
                     'updated_at' => $artist->updated_at,
                 ]),
@@ -54,7 +58,7 @@ class ArtistController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ArtistRequest $request)
+    public function store(Artist $request)
     {
         $this->validate($request, [
             'firstname' => 'required',
@@ -63,9 +67,9 @@ class ArtistController extends Controller
         ]);
         $firstname = $request->input('firstname');
         $lastname = $request->input('lastname');
-        $bod = $request->input('bod');
-        $dod = $request->input('dod');
+        $birthdate = $request->input('birthdate');
         $is_active = $request->input('is_active');
+        
 
         // prevent duplicate entries
         $artist = DB::table('artists')->where('firstname', $firstname)->where('lastname', $lastname)->first();
@@ -75,8 +79,8 @@ class ArtistController extends Controller
             $artist = new Artist();
             $artist->firstname = $request->input('firstname');
             $artist->lastname = $request->input('lastname');
-            $artist->bod = $request->input('bod');
-            $artist->dod = $request->input('dod');
+            $artist->is_active = $request->input('is_active');
+            $artist->birthdate = $request->input('birthdate');
             $artist->save();
 
             return Redirect::route('artists.index')->with('success', 'Artist created');
@@ -118,15 +122,15 @@ class ArtistController extends Controller
      */
     public function update(Artist $artist)
     {
+       
         $artist->update([
             'firstname' => Request::input('firstname'),
             'lastname' => Request::input('lastname'),
             'is_active' => Request::input('is_active'),
-            'bod' => Request::input('bod'),
-            'dod' => Request::input('dod'),
+            'birthdate' => Request::input('birthdate'),
         ]);
 
-        return redirect()->route('artists.index', $artist->id)->with('update', 'Artist updated');
+        return redirect()->route('artists.show', $artist->id)->with('update', 'Artist updated');
     }
 
     /**

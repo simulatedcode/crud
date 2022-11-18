@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\CategoryArtist;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Artist extends Model
 {
@@ -12,14 +13,17 @@ class Artist extends Model
     protected $fillable = [
         'firstname',
         'lastname',
-        'bod',
-        'dod',
+        'birthdate',
+        'deathdate',
         'is_active',
+
     ];
 
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
         'is_active' => 'boolean',
+
     ];
+  
 }

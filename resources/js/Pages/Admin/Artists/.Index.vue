@@ -6,15 +6,17 @@ import {ref, watch} from 'vue';
 import { Inertia } from '@inertiajs/inertia';
 import CarbonSearch from '~icons/carbon/search'
 
+
 let props = defineProps ({
     artists: Object,
     filters: Object,
 })
+
 let search = ref (props.filters.search);
+
 watch (search, value => {
     Inertia.get ('/artists', {search: value}, {
         preserveState: true,
-        preserveScroll: true,
         replace: true,
     });
 })
@@ -44,7 +46,7 @@ watch (search, value => {
                     
                 </div>
                 <div class="overflow-hidden">
-                   <ArtistTable :artists="artists" />
+                   <ArtistTable :artists="artists"/>
                 </div>
             </div>
         </div>

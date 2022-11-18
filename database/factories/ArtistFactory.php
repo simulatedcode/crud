@@ -19,6 +19,9 @@ class ArtistFactory extends Factory
         return [
             'firstname' => $this->faker->firstName,
             'lastname' => $this->faker->lastName,
+            'bod' => $this->faker->date,
+            'dod' => $this->faker->date,
+            'is_active' => $this->faker->boolean,
         ];
     }
 }

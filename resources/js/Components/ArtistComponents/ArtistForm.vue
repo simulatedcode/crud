@@ -1,15 +1,25 @@
 <script setup>
-import { useForm } from '@inertiajs/inertia-vue3';
-import Success from './Success.vue';
+import { useForm, Link } from '@inertiajs/inertia-vue3';
+
+defineProps({
+    categories: Object,
+})
 
 const form = useForm({
-    firstname: null,
-    lastname: null,
+    firstname: '',
+    lastname: '',
+    bod: '',
+    dod: '',
+    category: '',
+    is_active: true,
+
 })
 
 function submitArtist(){
     form.post(route('artists.store') , {
-        preserveScroll: true,
+        preserveState: true,
+        preserveScroll: true
+       
     });
 }
 
@@ -31,11 +41,38 @@ function submitArtist(){
                                 <input v-model="form.lastname" type="text" name="last-name" id="last-name" class="mt-1 block w-full border-x-0 border-t-0 border-b-gray-400 bg-gray-100 sm:text-sm" placeholder="Last name">
                                 <div v-if="form.errors.lastname" class="text-red-600 text-xs mt-1">{{ form.errors.lastname }}</div>
                             </div>
+
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="bod" class="block text-sm text-gray-700">Birth of Date<span class="text-xs text-red-500 ml-1">*</span></label>
+                                <input v-model="form.bod" type="date" name="bod" id="bod_id" class="mt-1 block w-full border-x-0 border-t-0 border-b-gray-400 bg-gray-100 sm:text-sm">
+                                <div v-if="form.errors.bod" class="text-red-600 text-xs mt-1">{{ form.errors.bod }}</div>
+                            </div>
+                            
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="dod" class="block text-sm text-gray-700">Died of Date<span class="text-xs text-gray-500 ml-1">(option)</span></label>
+                                <input v-model="form.dod" type="date" name="dod" id="dod_id" class="mt-1 block w-full border-x-0 border-t-0 border-b-gray-400 bg-gray-100 sm:text-sm">
+                                <div v-if="form.errors.dod" class="text-red-600 text-xs mt-1">{{ form.errors.dod }}</div>
+                            </div> 
+                            
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="status" class="w-full block text-sm text-gray-700">Category</label>
+                                <select v-model="form.category" id="category" name="category" autocomplete="category" class="mt-1 block w-full border-x-0 border-t-0 border-b-gray-400 bg-gray-100 sm:text-sm">
+                                    <option value="">Select Category</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="status" class="w-full block text-sm text-gray-700">Status</label>
+                                <div class="mt-3 flex space-x-2 items-center">
+                                    <input v-model="form.is_active" type="checkbox" name="status" id="active" value="1" class="border-gray-300">
+                                    <label for="active" class="text-sm text-gray-700">Active</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- Button -->
                     <div class="bg-blue-50 px-4 py-3 sm:px-6">
-                        <button  preserve-state preserve-scroll type="submit" class="inline-flex border border-transparent bg-blue-600 py-2 px-8 text-sm text-blue-100 font-medium hover:text-white hover:bg-blue-700 focus:outline-none">Save</button>
+                        <button preserve-state preserve-scroll type="submit" class="inline-flex border border-transparent bg-blue-600 py-2 px-8 text-sm text-blue-100 font-medium hover:text-white hover:bg-blue-700 focus:outline-none">Save</button>
                     </div>
                 </div>
         </form>
